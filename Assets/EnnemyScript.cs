@@ -30,11 +30,12 @@ public class EnnemyScript : MonoBehaviour
     {
         Vector3 toPlayerVector = playerPos - transform.position;
         Vector3 toBallVector = ballPos - transform.position;
-        if (toBallVector.magnitude < ballDetectionZone)
+        rb.velocity = Vector3.forward * speed;
+        if (toBallVector.magnitude <= ballDetectionZone)
         {
             Quaternion toBallLookRotation = Quaternion.LookRotation(-toBallVector);
             rb.MoveRotation(toBallLookRotation);
-            Vector3 toBallVelocity = -speed * toBallVector * (1 - toBallVector.magnitude / ballDetectionZone);
+            Vector3 toBallVelocity = -speed * toBallVector * (1 - toBallVector.magnitude / (ballDetectionZone));
             rb.velocity = toBallVelocity;
         }
         else
@@ -44,6 +45,15 @@ public class EnnemyScript : MonoBehaviour
             rb.MoveRotation(toPlayerLookRotation);
             Vector3 toPlayerVelocity = speed * toPlayerVector.normalized * 1.2f;
             rb.velocity = toPlayerVelocity;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag(ball.gameObject.tag))
+        {
+            Destroy(ball);
+            Destroy(gameObject);
         }
     }
 }

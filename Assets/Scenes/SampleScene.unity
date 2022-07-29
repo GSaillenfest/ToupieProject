@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130809, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.04
+      value: 6.86
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130809, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -228,7 +228,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130809, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.048543
+      value: 0.62
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130809, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -268,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 914287544}
     - target: {fileID: 8047977875468130810, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: ballDetectionZone
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130811, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_Name
@@ -457,6 +457,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: blueBall
       objectReference: {fileID: 0}
+    - target: {fileID: 5593641598916923728, guid: 68caa76626217af49be4b8c79032ec39, type: 3}
+      propertyPath: m_TagString
+      value: blueBall
+      objectReference: {fileID: 0}
     - target: {fileID: 5593641598916923732, guid: 68caa76626217af49be4b8c79032ec39, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -613,7 +617,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130809, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.01
+      value: 1.57
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130809, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -621,7 +625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130809, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.94
+      value: 5.11
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130809, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -661,7 +665,7 @@ PrefabInstance:
       objectReference: {fileID: 914287544}
     - target: {fileID: 8047977875468130810, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: ballDetectionZone
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8047977875468130811, guid: 1792486c6165e294987dcc82c5cd8acd, type: 3}
       propertyPath: m_Name
@@ -747,7 +751,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1170048005348977532, guid: 74dd2660972fb7c4f8010eb53dad2bb7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.09
+      value: -6.19
       objectReference: {fileID: 0}
     - target: {fileID: 1170048005348977532, guid: 74dd2660972fb7c4f8010eb53dad2bb7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -755,7 +759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1170048005348977532, guid: 74dd2660972fb7c4f8010eb53dad2bb7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.45
+      value: -4.14
       objectReference: {fileID: 0}
     - target: {fileID: 1170048005348977532, guid: 74dd2660972fb7c4f8010eb53dad2bb7, type: 3}
       propertyPath: m_LocalRotation.w
@@ -790,8 +794,20 @@ PrefabInstance:
       value: PlayerShip
       objectReference: {fileID: 0}
     - target: {fileID: 1170048005348977534, guid: 74dd2660972fb7c4f8010eb53dad2bb7, type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170048005348977534, guid: 74dd2660972fb7c4f8010eb53dad2bb7, type: 3}
       propertyPath: m_Constraints
       value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170048005348977535, guid: 74dd2660972fb7c4f8010eb53dad2bb7, type: 3}
+      propertyPath: _speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170048005348977535, guid: 74dd2660972fb7c4f8010eb53dad2bb7, type: 3}
+      propertyPath: _torque
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1170048005348977535, guid: 74dd2660972fb7c4f8010eb53dad2bb7, type: 3}
       propertyPath: projectiles

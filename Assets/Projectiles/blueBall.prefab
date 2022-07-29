@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5593641598916923734}
   m_Layer: 0
   m_Name: blueBall
-  m_TagString: Untagged
+  m_TagString: blueBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
