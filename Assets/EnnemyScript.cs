@@ -6,8 +6,13 @@ public class EnnemyScript : MonoBehaviour
 {
 
     [SerializeField] float speed = 2f;
+    [SerializeField] float ballDetectionZone = 5f;
+    [SerializeField] GameObject ball;
+    [SerializeField] GameObject player;
+
     Rigidbody rb;
-    Vector3 playerPosition;
+    Vector3 ballPos;
+    Vector3 playerPos;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,16 +22,28 @@ public class EnnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        playerPosition = FindObjectOfType<playerMovement>().transform.position;
+        ballPos = ball.transform.position;
+        playerPos = player.transform.position;
     }
 
     private void FixedUpdate()
     {
-        Vector3 orientation = playerPosition - transform.position;
-        Quaternion lookRotation = Quaternion.LookRotation(orientation);
-        rb.MoveRotation(lookRotation);
-        Vector3 velocity = speed * orientation.normalized;
-        rb.velocity = velocity;
+        Vector3 toPlayerVector = playerPos - transform.position;
+        Vector3 toBallVector = ballPos - transform.position;
+        if (toBallVector.magnitude < ballDetectionZone)
+        {
+            Quaternion toBallLookRotation = Quaternion.LookRotation(-toBallVector);
+            rb.MoveRotation(toBallLookRotation);
+            Vector3 toBallVelocity = -speed * toBallVector * (1 - toBallVector.magnitude / ballDetectionZone);
+            rb.velocity = toBallVelocity;
+        }
+        else
+        {
+            Debug.Log("chasing player");
+            Quaternion toPlayerLookRotation = Quaternion.LookRotation(toPlayerVector);
+            rb.MoveRotation(toPlayerLookRotation);
+            Vector3 toPlayerVelocity = speed * toPlayerVector.normalized * 1.2f;
+            rb.velocity = toPlayerVelocity;
+        }
     }
 }
