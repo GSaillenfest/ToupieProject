@@ -13,6 +13,8 @@ public class EnnemyScript : MonoBehaviour
     Rigidbody rb;
     Vector3 ballPos;
     Vector3 playerPos;
+    bool isChasingPlayer = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,22 +32,35 @@ public class EnnemyScript : MonoBehaviour
     {
         Vector3 toPlayerVector = playerPos - transform.position;
         Vector3 toBallVector = ballPos - transform.position;
-        rb.velocity = Vector3.forward * speed;
-        if (toBallVector.magnitude <= ballDetectionZone)
+
+        if (toBallVector.magnitude > ballDetectionZone) isChasingPlayer = true;
+        else if (toBallVector.magnitude <= ballDetectionZone * 0.8f) isChasingPlayer = false;
+
+
+        if (!isChasingPlayer)
         {
-            Quaternion toBallLookRotation = Quaternion.LookRotation(-toBallVector);
-            rb.MoveRotation(toBallLookRotation);
-            Vector3 toBallVelocity = -speed * toBallVector * (1 - toBallVector.magnitude / (ballDetectionZone));
-            rb.velocity = toBallVelocity;
+            RunningAway(toBallVector);
         }
         else
         {
-            Debug.Log("chasing player");
-            Quaternion toPlayerLookRotation = Quaternion.LookRotation(toPlayerVector);
-            rb.MoveRotation(toPlayerLookRotation);
-            Vector3 toPlayerVelocity = speed * toPlayerVector.normalized * 1.2f;
-            rb.velocity = toPlayerVelocity;
+            ChasingPlayer(toPlayerVector);
         }
+    }
+
+    private void RunningAway(Vector3 toBallVector)
+    {
+        Quaternion toBallLookRotation = Quaternion.LookRotation(-toBallVector);
+        rb.MoveRotation(toBallLookRotation);
+        Vector3 toBallVelocity = -speed * toBallVector * (1.2f - toBallVector.magnitude / ballDetectionZone);
+        rb.velocity = toBallVelocity;
+    }
+
+    private void ChasingPlayer(Vector3 toPlayerVector)
+    {
+        Quaternion toPlayerLookRotation = Quaternion.LookRotation(toPlayerVector);
+        rb.MoveRotation(toPlayerLookRotation);
+        Vector3 toPlayerVelocity = speed * toPlayerVector.normalized * 1.2f;
+        rb.velocity = toPlayerVelocity;
     }
 
     private void OnCollisionEnter(Collision collision)
