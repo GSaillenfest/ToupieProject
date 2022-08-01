@@ -7,6 +7,7 @@ TagManager:
   - greenBall
   - yellowBall
   - blueBall
+  - Enemy
   layers:
   - Default
   - TransparentFX
