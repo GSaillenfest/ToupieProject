@@ -1396,6 +1396,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: randomBall
       objectReference: {fileID: 0}
+    - target: {fileID: 5593641598916923729, guid: 5ae7afdc5de1a074b8de076734f874d3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5593641598916923732, guid: 5ae7afdc5de1a074b8de076734f874d3, type: 3}
       propertyPath: m_RootOrder
       value: 1

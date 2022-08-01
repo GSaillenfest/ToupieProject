@@ -49,11 +49,14 @@ public class TwinstickMovement : MonoBehaviour
 
         if (_orientationVertical != 0 || _orientationHorizontal != 0) orientation = new Vector3(_orientationHorizontal, 0, _orientationVertical);
 
-        if (Input.GetButton("Fire1") && Time.time >= nextShotTime)
+        if (Input.GetButton("Fire1") || Input.GetAxis("Fire1") != 0)
         {
-            if (shootPoint == shootPointLeft) shootPoint = shootPointRight;
-            else shootPoint = shootPointLeft;
-            Fire();
+            if (Time.time >= nextShotTime)
+            {
+                if (shootPoint == shootPointLeft) shootPoint = shootPointRight;
+                else shootPoint = shootPointLeft;
+                Fire();
+            }
         }
 
     }
@@ -73,17 +76,17 @@ public class TwinstickMovement : MonoBehaviour
         Destroy(newProjectile, 5f);
         nextShotTime = Time.time + fireRate;
     }
-       
+
     void ChangeBullet(int index)
     {
-    gameObject.GetComponentInChildren<MeshRenderer>().material = topMat[index];
+        gameObject.GetComponentInChildren<MeshRenderer>().material = topMat[index];
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             Time.timeScale = 0;
         }
 

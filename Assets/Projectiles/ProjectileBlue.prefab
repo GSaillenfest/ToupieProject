@@ -128,3 +128,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileRb: {fileID: 5593641598916923733}
+  particlePrefab: {fileID: 9170781578391545726, guid: 6e9b26c3bceb217478dd48c46491c104, type: 3}

@@ -6,8 +6,14 @@ public class Projectile : MonoBehaviour
 {
 
     [SerializeField] Rigidbody projectileRb;
+    [SerializeField] ParticleSystem particlePrefab;
     float projectileForce;
 
+    private void Awake()
+    {
+        ParticleSystem fireBurst = Instantiate(particlePrefab, transform.position, transform.rotation);
+
+    }
     // Start is called before the first frame update
     void Start()
     {
