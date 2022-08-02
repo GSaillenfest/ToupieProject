@@ -31,10 +31,12 @@ public class Levels : MonoBehaviour
                 if ((spawnPos[indexSpawnPos] - player.transform.position).magnitude < 5)
                 {
                     j--;
-                    return;
                 }
-                int index = Random.Range(0, enemyTypes.Length);
-                Instantiate(enemyTypes[index], spawnPos[indexSpawnPos], Quaternion.identity, enemies.transform);
+                else
+                {
+                    int index = Random.Range(0, enemyTypes.Length);
+                    Instantiate(enemyTypes[index], spawnPos[indexSpawnPos], Quaternion.identity, enemies.transform);
+                }
             }
             i++;
         }
