@@ -7,18 +7,23 @@ public class EnemyFollow : MonoBehaviour
 
     [SerializeField] float speed = 2f;
     [SerializeField] float playerDetectionRange = 5f;
-    [SerializeField] GameObject player;
     [SerializeField] GameObject ball;
     [SerializeField] int index;
 
     Rigidbody rb;
     Vector3 playerPos;
     bool isChasingPlayer = true;
+    GameObject player;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        rb = GetComponent<Rigidbody>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
