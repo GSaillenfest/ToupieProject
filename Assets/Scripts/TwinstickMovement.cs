@@ -13,6 +13,8 @@ public class TwinstickMovement : MonoBehaviour
     [SerializeField] float fireRate = 0.2f;
     [SerializeField] GameObject shootPointLeft;
     [SerializeField] GameObject shootPointRight;
+    [SerializeField] Animator rightCannon;
+    [SerializeField] Animator leftCannon;
 
     Vector3 movementInput;
     Vector3 orientation;
@@ -53,8 +55,16 @@ public class TwinstickMovement : MonoBehaviour
         {
             if (Time.time >= nextShotTime)
             {
-                if (shootPoint == shootPointLeft) shootPoint = shootPointRight;
-                else shootPoint = shootPointLeft;
+                if (shootPoint == shootPointLeft)
+                {
+                    shootPoint = shootPointRight;
+                    rightCannon.SetTrigger("fire");
+                }
+                else
+                {
+                    shootPoint = shootPointLeft;
+                    leftCannon.SetTrigger("fire");
+                }
                 Fire();
             }
         }
